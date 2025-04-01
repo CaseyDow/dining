@@ -7,11 +7,11 @@ const getNextFiveDays = () => {
   for (let i = 0; i < 7; i++) {
     const nextDay = new Date(today);
     nextDay.setDate(today.getDate() + i);
-    dates.push(nextDay.toISOString().split('T')[0]); // Format as 'YYYY-MM-DD'
+    dates.push(nextDay.toLocaleDateString("fr-CA").split('T')[0]); // Format as 'YYYY-MM-DD'
   }
   const nextDay = new Date(today);
   nextDay.setDate(today.getDate() - 1);
-  dates.push(nextDay.toISOString().split('T')[0]); // Format as 'YYYY-MM-DD'
+  dates.push(nextDay.toLocaleDateString("fr-CA").split('T')[0]); // Format as 'YYYY-MM-DD'
   return dates;
 };
 
@@ -296,8 +296,8 @@ const App = () => {
         <option value={nextFiveDays[2]} key="2">{nextFiveDays[2]}</option>
         <option value={nextFiveDays[3]} key="3">{nextFiveDays[3]}</option>
         <option value={nextFiveDays[4]} key="4">{nextFiveDays[4]}</option>
-        <option value={nextFiveDays[5]} key="4">{nextFiveDays[5]}</option>
-        <option value={nextFiveDays[6]} key="4">{nextFiveDays[6]}</option>
+        <option value={nextFiveDays[5]} key="5">{nextFiveDays[5]}</option>
+        <option value={nextFiveDays[6]} key="6">{nextFiveDays[6]}</option>
       </select>
 
       {selectedDate && (<select onChange={selectMeal} value={selectedMeal}>
