@@ -17,9 +17,9 @@ const getNextFiveDays = () => {
 
 const Category = (props) => {
   return (
-    <li key={props.mealOption.menuId}>
-      <div className="font-bold">{props.mealOption.mealOptionName}</div>
-      <ul>
+    <li key={props.mealOption.menuId} className="category-item">
+      <div className="category-header">{props.mealOption.mealOptionName}</div>
+      <ul className="row-item">
         {props.mealOption.menuRows?.map((item) => (
           <Item key={item.menuRowId} id={item.recipeId ? item.recipeId : item.ingredientId} ingredient={!!item.ingredientId} />
         ))}
@@ -68,100 +68,100 @@ const Item = (props) => {
     if (!nutritiveValues) return null;
 
     return (
-      <div>
-        <div className="flex flex-row p-1">
+      <div className="nutritional-info-container">
+        <div className="serving-size">
           <div className="text-sm">Serving Size {data.recipePortions || data.portion}{data.recipePortionSizeUnit || data.portionUnit}</div>
           <div className="flex-grow" />
         </div>
-        <hr className="w-19/20 h-0.05 text-gray-300 m-auto"/>
-        <div className="flex flex-row p-1">
+        <hr />
+        <div className="amount-per-serving">
           <div className="text-xs font-thin">Amount per Serving</div>
           <div className="flex-grow" />
         </div>
-        <div className="flex flex-row p-1">
-          <div className="text-xl font-bold">Calories</div>
+        <div className="calories">
+          <div className="text-xl">Calories</div>
           <div className="flex-grow" />
           <div>{Math.round(nutritiveValues.energyKcal)} kcal</div>
         </div>
-        <hr className="w-19/20 h-0.05 text-gray-300 m-auto"/>
-        <div className="flex flex-row p-1">
+        <hr />
+        <div className="daily-value">
           <div className="flex-grow" />
           <div className="text-sm font-thin">% Daily Value</div>
         </div>
-        <hr className="w-19/20 h-0.05 text-gray-300 m-auto"/>
-        <div className="flex flex-row p-1">
+        <hr />
+        <div className="nutritional-row">
           <div className="font-bold">Fat {nutritiveValues.fat.toFixed(1)}g</div>
           <div className="flex-grow" />
           <div>{Math.round((nutritiveValues.fat / 78) * 100)}%</div>
         </div>
-        <hr className="w-19/20 h-0.05 text-gray-300 m-auto"/>
-        <div className="flex flex-row indent-3 p-1">
+        <hr />
+        <div className="nutritional-row indented">
           <div>Saturated Fat {nutritiveValues.saturatedFat.toFixed(1)} g</div>
           <div className="flex-grow" />
           <div>{Math.round((nutritiveValues.saturatedFat / 20) * 100)}%</div>
         </div>
-        <hr className="w-19/20 h-0.05 text-gray-300 m-auto"/>
-        <div className="flex flex-row p-1">
+        <hr />
+        <div className="nutritional-row">
           <div className="font-bold">Sodium {nutritiveValues.sodium.toFixed(1)} mg</div>
           <div className="flex-grow" />
           <div>{Math.round((nutritiveValues.sodium / 2300) * 100)}%</div>
         </div>
-        <hr className="w-19/20 h-0.05 text-gray-300 m-auto"/>
-        <div className="flex flex-row p-1">
+        <hr />
+        <div className="nutritional-row">
           <div className="font-bold">Total Carbohydrate {nutritiveValues.carbohydrate.toFixed(1)} g</div>
           <div className="flex-grow" />
           <div>{Math.round((nutritiveValues.carbohydrate / 275) * 100)}%</div>
         </div>
-        <hr className="w-19/20 h-0.05 text-gray-300 m-auto"/>
-        <div className="flex flex-row indent-3 p-1">
+        <hr />
+        <div className="nutritional-row indented">
           <div>Fiber {nutritiveValues.fibre.toFixed(1)} g</div>
           <div className="flex-grow" />
           <div>{Math.round((nutritiveValues.fibre / 28) * 100)}%</div>
         </div>
-        <hr className="w-19/20 h-0.05 text-gray-300 m-auto"/>
-        <div className="flex flex-row indent-3 p-1">
+        <hr />
+        <div className="nutritional-row indented">
           <div>Sugars {nutritiveValues.sugars.toFixed(1)} g</div>
           <div className="flex-grow" />
         </div>
-        <hr className="w-19/20 h-0.05 text-gray-300 m-auto"/>
-        <div className="flex flex-row indent-6 p-1">
+        <hr />
+        <div className="nutritional-row more-indented">
           <div>Includes Added Sugars {nutritiveValues.addedSugar.toFixed(1)} g</div>
           <div className="flex-grow" />
           <div>{Math.round((nutritiveValues.addedSugar / 50) * 100)}%</div>
         </div>
-        <hr className="w-19/20 h-0.05 text-gray-300 m-auto"/>
-        <div className="flex flex-row p-1">
+        <hr />
+        <div className="nutritional-row">
           <div className="font-bold">Protein {nutritiveValues.protein.toFixed(1)} g</div>
           <div className="flex-grow" />
           <div>{Math.round((nutritiveValues.protein / 50) * 100)}%</div>
         </div>
-        <hr className="w-19/20 h-0.05 text-gray-300 m-auto"/>
-        <div className="flex flex-row p-1">
-          <div className="flex flex-row min-w-1/2 pr-4">
+        <hr />
+        <div className="two-column-row">
+          <div>
             <div className="font-bold">Calcium {nutritiveValues.calcium.toFixed(1)} mg</div>
             <div className="flex-grow" />
             <div>{Math.round((nutritiveValues.calcium / 1300) * 100)}%</div>
           </div>
-          <div className="flex flex-row min-w-1/2">
+          <div>
             <div className="font-bold">Iron {nutritiveValues.iron.toFixed(1)} mg</div>
             <div className="flex-grow" />
             <div>{Math.round((nutritiveValues.iron / 18) * 100)}%</div>
           </div>
         </div>
-        <hr className="w-19/20 h-0.05 text-gray-300 m-auto"/>
-        <div className="flex flex-row p-1">
-          <div className="flex flex-row min-w-1/2 pr-4">
+        <hr />
+        <div className="two-column-row">
+          <div>
             <div className="font-bold">Potassium {nutritiveValues.potassium.toFixed(1)} mg</div>
             <div className="flex-grow" />
             <div>{Math.round((nutritiveValues.potassium / 4700) * 100)}%</div>
           </div>
-          <div className="flex flex-row min-w-1/2">
+          <div>
             <div className="font-bold">Vitamin D {nutritiveValues.vitaminD.toFixed(1)} mg</div>
             <div className="flex-grow" />
             <div>{Math.round((nutritiveValues.vitaminD / 20) * 100)}%</div>
           </div>
         </div>
-        <div className="p-3">
+        <div className="ingredient-list">
           <div className="font-bold">Ingredients:</div> {(data.recipeListOfIngredientsTranslations || data.ingredientNameTranslations).EN.replace(/<strong>/g,"").replace(/<\/strong>/g,"")}
         </div>
       </div>
@@ -169,28 +169,28 @@ const Item = (props) => {
   };
 
   return (
-    <li key={props.id} className="text-black">
-      <span onClick={handleItemClick} style={{ cursor: 'pointer', color: 'blue' }} className="">
-        <div className="ps-12 -indent-6 text-black flex flex-wrap">
-        {data ? (props.ingredient ? data.ingredientNameTranslations?.EN : (data.recipeNameTranslations?.EN || data.recipeName)) : ""}
-        {
-          data?.recipeAllergens?.map(obj => {
-            return <div className={`p-3 inline recipe-metadata-item metadata-${obj.allergenName.toLowerCase()}`} />
-            })
-        }
-        </div>
-      </span>
+      <li key={props.id}>
+         <span onClick={handleItemClick} style={{ cursor: 'pointer', color: 'blue' }}>
+            <div className="item-list-item">
+            {data ? (props.ingredient ? data.ingredientNameTranslations?.EN : (data.recipeNameTranslations?.EN || data.recipeName)) : ""}
+            {
+               data?.recipeAllergens?.map((obj, index) => {
+                  return <div key={obj.allergenName || index} className={`recipe-metadata-item metadata-${obj.allergenName.toLowerCase()}`} />
+                  })
+            }
+            </div>
+         </span>
 
-      {isPopupVisible && (
-        <div className="overlay">
-          <div className="popup">
-            <button onClick={handleClosePopup} className="closeButton">Close</button>
-            {renderNutritionalInfo()}
-          </div>
-        </div>
-      )}
-    </li>
-  );
+         {isPopupVisible && (
+            <div className="overlay">
+               <div className="popup">
+                  <button onClick={handleClosePopup} className="closeButton">Close</button>
+                  {renderNutritionalInfo()}
+               </div>
+            </div>
+         )}
+      </li>
+   );
 };
 
 
@@ -232,19 +232,19 @@ const App = () => {
           }).filter(menu => menu.menuWeeks.length > 0);
         }
         const cleanData = cleanMenuData(data);
-        console.log(cleanData);
         setMenus(cleanData);
 
-        let periods = [...new Set(Object.values(cleanData).filter(obj => obj.menuName.includes("Service")).map(obj => obj.menuGroupName))];
-        let sortedPeriods = ["Breakfast", "Lunch", "Dinner"].filter(obj => periods.includes(obj));
-        setFilteredPeriods(sortedPeriods);
-        let period = selectedMeal;
+        let periods = [ ...new Set( Object.values(cleanData) .filter(obj => ["Breakfast", "Lunch", "Dinner"] .some(meal => obj.menuName?.includes(meal))) .map(obj => obj.menuGroupName) ) ];
+        let sortedPeriods = ["Breakfast", "Lunch", "Dinner", "Late Night"].filter(obj => periods.includes(obj));
+        setFilteredPeriods(sortedPeriods); let period = selectedMeal;
+
         if (!sortedPeriods.includes(period)) {
-          period = sortedPeriods[0];
-          setSelectedMeal(period);
+          period = sortedPeriods[0]; setSelectedMeal(period);
         }
 
-        const locations = [...new Set(Object.values(cleanData).filter(obj => obj.menuGroupName == period && obj.menuName.includes("Service")).map(obj => obj.storeName))]
+        const locations = [ ...new Set( Object.values(cleanData)
+          .filter(obj => obj.menuGroupName == period && ["Breakfast", "Lunch", "Dinner"]
+            .some(meal => obj.menuName?.includes(meal))) .map(obj => obj.storeName) ) ];
         setFilteredLocations(locations);
         let location = selectedLocation;
         if (!locations.includes(location)) {
@@ -267,7 +267,9 @@ const App = () => {
 
   const selectMeal = (event) => {
     setSelectedMeal(event.target.value);
-    const locations = [...new Set(Object.values(menus).filter(obj => obj.menuGroupName == event.target.value && obj.menuName.includes("Service")).map(obj => obj.storeName))]
+    const locations = [ ...new Set( Object.values(menus)
+      .filter(obj => obj.menuGroupName == selectedMeal && ["Breakfast", "Lunch", "Dinner"]
+        .some(meal => obj.menuName?.includes(meal))) .map(obj => obj.storeName) ) ];
     setFilteredLocations(locations);
     let location = selectedLocation;
     if (!locations.includes(location)) {
@@ -285,10 +287,10 @@ const App = () => {
   };
 
   return (
-    <div className="p-10 min-h-full">
-      <div className="text-2xl font-bold">UCLA Dining Menus</div>
+    <div className="app-container">
+      <div className="app-header">UCLA Dining Menus</div>
 
-      <select onChange={selectDate} value={selectedDate}>
+      <select onChange={selectDate} value={selectedDate} className="menu-select">
         <option value="">Select Date</option>
         <option value={nextFiveDays[7]} key="-1">Yesterday {nextFiveDays[7]}</option>
         <option value={nextFiveDays[0]} key="0">Today {nextFiveDays[0]}</option>
@@ -300,7 +302,7 @@ const App = () => {
         <option value={nextFiveDays[6]} key="6">{nextFiveDays[6]}</option>
       </select>
 
-      {selectedDate && (<select onChange={selectMeal} value={selectedMeal}>
+      {selectedDate && (<select onChange={selectMeal} value={selectedMeal} className="menu-select">
         <option value="">Select meal</option>
           {filteredPeriods.map(period => (
             <option value={period} key={period}>{period}</option>
@@ -309,7 +311,7 @@ const App = () => {
       )}
 
       {selectedMeal && (
-        <select onChange={selectStore} value={selectedLocation}>
+        <select onChange={selectStore} value={selectedLocation} className="menu-select">
           <option value="">Select meal</option>
           {filteredLocations.map(location => (
             <option value={location} key={location}>{location}</option>

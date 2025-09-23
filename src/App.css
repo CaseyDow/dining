@@ -12,6 +12,52 @@
   }
 }
 
+/* Base styles for the entire app container */
+.app-container {
+  padding: 2.5rem; /* 10p */
+  min-height: 100vh;
+  font-family: ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"
+}
+
+/* Header styling */
+.app-header {
+  font-size: 1.5rem; /* 2xl */
+  font-weight: 700; /* bold */
+}
+
+/* Select dropdown styling */
+.menu-select {
+  margin-right: 0.5rem;
+  margin-top: 1rem;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  border: 1px solid #ccc;
+}
+
+/* Item styling */
+.item-list-item {
+  color: #000;
+  cursor: pointer;
+  margin-left: 1rem;
+  text-indent: -1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 15px;
+}
+
+/* Category styling */
+.category-item {
+  list-style-type: none;
+}
+
+.row-item {
+  list-style-type: none;
+}
+
+.category-header {
+  font-weight: 700; /* font-bold */
+}
+
 /* Overlay styling */
 .overlay {
   position: fixed;
@@ -44,12 +90,115 @@
   cursor: pointer;
 }
 
-@import "tailwindcss";
+/* Nutritional info styling */
+.nutritional-info-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.serving-size {
+  display: flex;
+  flex-direction: row;
+  padding: 0.25rem; /* p-1 */
+}
+
+.text-sm {
+  font-size: 0.875rem; /* text-sm */
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+hr {
+  width: calc(100% * 19 / 20);
+  height: 1px;
+  background-color: #d1d5db; /* gray-300 */
+  margin: auto;
+  border: none;
+}
+
+.amount-per-serving {
+  display: flex;
+  flex-direction: row;
+  padding: 0.25rem; /* p-1 */
+}
+
+.text-xs {
+  font-size: 0.75rem; /* text-xs */
+}
+
+.font-thin {
+  font-weight: 100; /* font-thin */
+}
+
+.calories {
+  display: flex;
+  flex-direction: row;
+  padding: 0.25rem; /* p-1 */
+  font-weight: 700; /* font-bold */
+}
+
+.text-xl {
+  font-size: 1.25rem; /* text-xl */
+}
+
+.daily-value {
+  display: flex;
+  flex-direction: row;
+  padding: 0.25rem; /* p-1 */
+}
+
+.nutritional-row {
+  display: flex;
+  flex-direction: row;
+  padding: 0.25rem; /* p-1 */
+}
+
+.nutritional-row .font-bold {
+  font-weight: 700;
+}
+
+.indented {
+  padding-left: 0.75rem; /* indent-3 */
+}
+
+.more-indented {
+  padding-left: 1.5rem; /* indent-6 */
+}
+
+.ingredient-list {
+  padding: 0.75rem; /* p-3 */
+}
+
+.ingredient-list .font-bold {
+  font-weight: 700;
+}
+
+.two-column-row {
+  display: flex;
+  flex-direction: row;
+  padding: 0.25rem; /* p-1 */
+}
+
+.two-column-row > div {
+  display: flex;
+  flex-direction: row;
+  min-width: 50%;
+}
+
+.two-column-row > div:first-child {
+  padding-right: 1rem;
+}
 
 .recipe-metadata-item {
   background-repeat: no-repeat;
   background-size: 20px auto;
   background-position: center center;
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  margin-left: 5px;
 }
 
 .metadata-high-carbon-footprint {
