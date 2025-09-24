@@ -16,7 +16,7 @@
 .app-container {
   padding: 2.5rem; /* 10p */
   min-height: 100vh;
-  font-family: ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"
+  font-family: ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
 }
 
 /* Header styling */
@@ -25,13 +25,53 @@
   font-weight: 700; /* bold */
 }
 
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.header-buttons {
+  display: flex;
+  flex-wrap: wrap; /* Buttons can wrap into a new row */
+  gap: 10px;
+}
+
+.header-buttons button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #005587;
+  color: white;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.header-buttons button:hover {
+  background-color: #003f5c;
+}
+
 /* Select dropdown styling */
 .menu-select {
-  margin-right: 0.5rem;
-  margin-top: 1rem;
-  padding: 0.25rem;
-  border-radius: 0.25rem;
+  margin-left: 10px;
+  margin-top: 5px;
+  font-size: .9rem;
   border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+ul, li {
+  padding: 0;
+  padding-left: 10px;
 }
 
 /* Item styling */
@@ -39,10 +79,10 @@
   color: #000;
   cursor: pointer;
   margin-left: 1rem;
-  text-indent: -1.5rem;
   display: flex;
   flex-wrap: wrap;
   font-size: 15px;
+
 }
 
 /* Category styling */
@@ -155,6 +195,11 @@ hr {
   padding: 0.25rem; /* p-1 */
 }
 
+.nutrient-header {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
 .nutritional-row .font-bold {
   font-weight: 700;
 }
@@ -184,7 +229,7 @@ hr {
 .two-column-row > div {
   display: flex;
   flex-direction: row;
-  min-width: 50%;
+  min-width: calc(50% - .5rem);
 }
 
 .two-column-row > div:first-child {
@@ -199,6 +244,39 @@ hr {
   height: 20px;
   width: 20px;
   margin-left: 5px;
+}
+
+/* Hamburger button hidden by default */
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #005587;
+}
+
+/* Responsive styles */
+@media (max-width: 680px) {
+  .header-buttons {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+    gap: 10px;
+  }
+
+  .header-buttons.show {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .app-header {
+    flex-wrap: wrap;
+  }
 }
 
 .metadata-high-carbon-footprint {
