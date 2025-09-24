@@ -68,7 +68,7 @@
 
 ul, li {
   padding: 0;
-  padding-left: 1rem;
+  padding-left: .75rem;
   list-style-type: none;
 }
 

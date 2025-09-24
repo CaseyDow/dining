@@ -427,7 +427,7 @@ const App = () => {
           ))}
         </ul>
       ) : (
-        <p>Please select a store to see the items.</p>
+        <p className="more-indented">Please select a store to see the items.</p>
       )}
     </div>
   );
