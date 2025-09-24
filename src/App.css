@@ -14,7 +14,6 @@
 
 /* Base styles for the entire app container */
 .app-container {
-  padding: 2.5rem; /* 10p */
   min-height: 100vh;
   font-family: ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
 }
@@ -62,8 +61,6 @@
   margin-top: 5px;
   font-size: .9rem;
   border: 1px solid #ccc;
-  border-radius: 8px;
-  background-color: #fff;
   outline: none;
   cursor: pointer;
   transition: border-color 0.2s, box-shadow 0.2s;
@@ -71,27 +68,16 @@
 
 ul, li {
   padding: 0;
-  padding-left: 10px;
+  padding-left: 1rem;
+  list-style-type: none;
 }
 
 /* Item styling */
 .item-list-item {
   color: #000;
-  cursor: pointer;
-  margin-left: 1rem;
   display: flex;
   flex-wrap: wrap;
-  font-size: 15px;
-
-}
-
-/* Category styling */
-.category-item {
-  list-style-type: none;
-}
-
-.row-item {
-  list-style-type: none;
+  font-size: 1rem;
 }
 
 .category-header {
@@ -128,18 +114,17 @@ ul, li {
   color: #007bff;
   border: none;
   cursor: pointer;
+  background-color: white;
+  font-size: 1rem;
 }
 
 /* Nutritional info styling */
 .nutritional-info-container {
-  display: flex;
   flex-direction: column;
 }
 
 .serving-size {
-  display: flex;
-  flex-direction: row;
-  padding: 0.25rem; /* p-1 */
+  padding: 0.25rem;
 }
 
 .text-sm {
@@ -153,14 +138,12 @@ ul, li {
 hr {
   width: calc(100% * 19 / 20);
   height: 1px;
-  background-color: #d1d5db; /* gray-300 */
+  background-color: #d1d5db;
   margin: auto;
   border: none;
 }
 
 .amount-per-serving {
-  display: flex;
-  flex-direction: row;
   padding: 0.25rem; /* p-1 */
 }
 
@@ -174,7 +157,6 @@ hr {
 
 .calories {
   display: flex;
-  flex-direction: row;
   padding: 0.25rem; /* p-1 */
   font-weight: 700; /* font-bold */
 }
@@ -185,13 +167,11 @@ hr {
 
 .daily-value {
   display: flex;
-  flex-direction: row;
   padding: 0.25rem; /* p-1 */
 }
 
 .nutritional-row {
   display: flex;
-  flex-direction: row;
   padding: 0.25rem; /* p-1 */
 }
 
@@ -222,14 +202,12 @@ hr {
 
 .two-column-row {
   display: flex;
-  flex-direction: row;
   padding: 0.25rem; /* p-1 */
 }
 
 .two-column-row > div {
   display: flex;
-  flex-direction: row;
-  min-width: calc(50% - .5rem);
+  width: calc(50% - .5rem);
 }
 
 .two-column-row > div:first-child {
@@ -239,8 +217,6 @@ hr {
 .recipe-metadata-item {
   background-repeat: no-repeat;
   background-size: 20px auto;
-  background-position: center center;
-  display: inline-block;
   height: 20px;
   width: 20px;
   margin-left: 5px;
